@@ -1,56 +1,58 @@
+print ('Lets play Odds and Evens between you and the computer')
 def main():
     import random
-    Computer = random.randint(1, 100)
+    computer = random.randint(1, 100)
     which = {}
-    print ('Lets play Odds and Evens between you and the computer')
-    def whoiswhat():
-        You = input('What would you like to be, odd or even  ').strip().lower()
-        if You == 'odd':
-            which['odd'] = 'You'
-            which['even'] = 'Computer'
-        elif You == 'even':
-            which['even'] = 'You'
-            which['odd'] = 'Computer'
+
+    def who_is_what():
+        you = input('What would you like to be, odd or even  ').strip().lower()
+        if you == 'odd':
+            which['odd'] = 'you'
+            which['even'] = 'computer'
+        elif you == 'even':
+            which['even'] = 'you'
+            which['odd'] = 'computer'
         else:
             print ('Oops, you wrote something else...')
-            whoiswhat()
-    whoiswhat()
+            who_is_what()
+    who_is_what()
 
-    def t1(prompt):
+    def input_prompt(prompt):
         while True:
-            You = input(prompt).strip().lower()
+            you = input(prompt).strip().lower()
             try:
-                You = int(You)
+                you = int(you)
                 break
             except:
                 print("Error! This is not a number. Try again.")
                 continue
-        return You
+        return you
+
     def rando():
-        return  ('The computer chose: ',Computer)
+        return ('The computer chose: ', computer)
     rando()
 
-    def oddOReven():
-        abc = t1("Enter your number: ")
-        #print(type(You))
-        print('The computer chose: ', Computer)
-        if (int(abc) + int(Computer)) % 2 == 0:
-            print (which['even'] + ' won!' )
+    def odd_or_even():
+        abc = input_prompt("Enter your number: ")
+        # print(type(you))
+        print('The computer chose: ', computer)
+        if (int(abc) + int(computer)) % 2 == 0:
+            print(which['even'] + ' won!')
         else:
-            print (which['odd'] + ' won!')
-    oddOReven()
+            print(which['odd'] + ' won!')
+    odd_or_even()
 
-    def askcont():
+    def ask_cont():
         while True:
             cont = input('Would you like to continue (yes or no)?').strip().lower()
-            if 'y' in cont:
+            if cont == 'Yes'.strip().lower():
                 main()
-            elif 'n' in cont:
+            elif cont == 'No'.strip().lower():
                 print ('OK, goodbye!')
                 exit()
             else:
-                print ('You wrote something else..')
-                askcont()
-    askcont()
+                print ('you wrote something else..')
+                ask_cont()
+    ask_cont()
 
 main()
