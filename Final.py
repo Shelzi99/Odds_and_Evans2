@@ -18,21 +18,17 @@ def main():
     who_is_what()
 
     def input_prompt(prompt):
-        while True:
+        you = input(prompt).strip().lower()
+        while not you.isdigit():
+            print("Error! This is not a number. Try again.")
             you = input(prompt).strip().lower()
-            try:
-                you = int(you)
-                break
-            except:
-                print("Error! This is not a number. Try again.")
-                continue
         return you
-
+                        
     def rando():
         return ('The computer chose: ', computer)
     rando()
 
-    def odd_or_even():
+    def who_wins():
         abc = input_prompt("Enter your number: ")
         # print(type(you))
         print('The computer chose: ', computer)
@@ -40,7 +36,7 @@ def main():
             print(which['even'] + ' won!')
         else:
             print(which['odd'] + ' won!')
-    odd_or_even()
+    who_wins()
 
     def ask_cont():
         while True:
